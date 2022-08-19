@@ -35,7 +35,8 @@ const get = async (endpoint) => {
 };
 
 const put = async (endpoint, payload) => {
-  const { data } = await axios.put(apiUrl + endpoint, payload, {
+  const todo = JSON.stringify(payload);
+  const { data } = await axios.put(apiUrl + endpoint, todo, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("userToken")}`,

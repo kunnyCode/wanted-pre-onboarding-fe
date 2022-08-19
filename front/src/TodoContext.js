@@ -9,7 +9,10 @@ const reducer = (state, action) => {
       state = action.data;
       return state;
     case "PUT":
-      return;
+      return state.map((item) => {
+        if (item.id === action.data.id) return action.data;
+        return item;
+      });
     case "DELETE":
       return;
     default:
@@ -19,7 +22,7 @@ const reducer = (state, action) => {
 
 export const createItem = async (dispatch, content) => {
   try {
-    const res = await Api.post("todos", String(content), true);
+    const res = await Api.post("todos", content, true);
     dispatch({ type: "CREATE", data: res });
   } catch (e) {
     alert(`에러 내용: ${e.response.data.message}`);
@@ -30,6 +33,15 @@ export const getList = async (dispatch) => {
   try {
     const res = await Api.get("todos");
     dispatch({ type: "GET", data: res });
+  } catch (e) {
+    alert(`에러 내용: ${e.response.data.message}`);
+  }
+};
+
+export const editItem = async (dispatch, content, idNum) => {
+  try {
+    const res = await Api.put(`todos/${idNum}`, content);
+    dispatch({ type: "PUT", data: res });
   } catch (e) {
     alert(`에러 내용: ${e.response.data.message}`);
   }
