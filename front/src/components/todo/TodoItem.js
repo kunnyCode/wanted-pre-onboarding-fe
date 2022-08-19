@@ -14,7 +14,7 @@ const TodoItem = ({ id, todo, isCompleted, userId }) => {
     editItem(dispatch, content, idNum);
   };
 
-  const handleEditItem = () => {
+  const handleEditForm = () => {
     const idNum = id;
     const content = { todo: todoContent, isCompleted: isCompleted };
     editItem(dispatch, content, idNum);
@@ -45,7 +45,7 @@ const TodoItem = ({ id, todo, isCompleted, userId }) => {
             <button
               onClick={() => {
                 setOpenEidtForm(false);
-                handleEditItem();
+                handleEditForm();
               }}
             >
               변경

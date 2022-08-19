@@ -17,6 +17,7 @@ const TodoPage = () => {
 
   useEffect(() => {
     getList(dispatch);
+    // eslint-disable-next-line
   }, []);
 
   return (

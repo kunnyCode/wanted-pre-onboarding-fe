@@ -15,6 +15,7 @@ const AuthPage = () => {
       navigate("/todo");
       return;
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
