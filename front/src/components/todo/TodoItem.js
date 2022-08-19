@@ -4,19 +4,21 @@ import { deleteItem, editItem, TodoDispatchContext } from "../../TodoContext";
 const TodoItem = ({ id, todo, isCompleted, userId }) => {
   const [openEditFrom, setOpenEidtForm] = useState(false);
   const [todoContent, setTodoContent] = useState(todo);
-  // const [todoIsCompleted, setTodoIsCompleted] = useState(isCompleted);
 
   const dispatch = useContext(TodoDispatchContext);
 
   const handleEditCheck = () => {
-    const idNum = id;
     const content = { todo: todoContent, isCompleted: !isCompleted };
-    editItem(dispatch, content, idNum);
+    handleEditItem(content);
   };
 
   const handleEditForm = () => {
-    const idNum = id;
     const content = { todo: todoContent, isCompleted: isCompleted };
+    handleEditItem(content);
+  };
+
+  const handleEditItem = (content) => {
+    const idNum = id;
     editItem(dispatch, content, idNum);
   };
 
