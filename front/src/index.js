@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { TodoContext } from "./TodoContext";
 
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <TodoContext>
+      <App />
+    </TodoContext>
   </React.StrictMode>
 );
 
