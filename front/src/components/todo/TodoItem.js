@@ -4,13 +4,19 @@ import { deleteItem, editItem, TodoDispatchContext } from "../../TodoContext";
 const TodoItem = ({ id, todo, isCompleted, userId }) => {
   const [openEditFrom, setOpenEidtForm] = useState(false);
   const [todoContent, setTodoContent] = useState(todo);
-  const [todoIsCompleted, setTodoIsCompleted] = useState(isCompleted);
+  // const [todoIsCompleted, setTodoIsCompleted] = useState(isCompleted);
 
   const dispatch = useContext(TodoDispatchContext);
 
+  const handleEditCheck = () => {
+    const idNum = id;
+    const content = { todo: todoContent, isCompleted: !isCompleted };
+    editItem(dispatch, content, idNum);
+  };
+
   const handleEditItem = () => {
     const idNum = id;
-    const content = { todo: todoContent, isCompleted: todoIsCompleted };
+    const content = { todo: todoContent, isCompleted: isCompleted };
     editItem(dispatch, content, idNum);
   };
 
@@ -57,13 +63,8 @@ const TodoItem = ({ id, todo, isCompleted, userId }) => {
       ) : (
         <div style={{ display: "flex" }}>
           <div style={{ border: "1px solid red" }}>
-            <button
-              onClick={() => {
-                setTodoIsCompleted((prev) => !prev);
-                handleEditItem();
-              }}
-            >
-              {todoIsCompleted ? "✔︎체크한상태✔︎" : "노체크상태"}
+            <button onClick={handleEditCheck}>
+              {isCompleted ? "✔︎체크한상태✔︎" : "노체크상태"}
             </button>
             <div>아이디{id}</div>
             <div>내용{todo}</div>
