@@ -16,6 +16,14 @@ const TodoPage = () => {
   };
 
   useEffect(() => {
+    if (
+      !localStorage.getItem("userToken") ||
+      localStorage.getItem("userToken") === "undefined"
+    ) {
+      navigate("/");
+      return;
+    }
+
     getList(dispatch);
     // eslint-disable-next-line
   }, []);
