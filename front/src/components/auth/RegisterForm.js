@@ -1,27 +1,27 @@
 import { useState } from "react";
 import * as Api from "../../api";
 import { validateEmail } from "../../utils";
-import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({ setIsRegisterPage }) => {
-  const navigate = useNavigate();
+const RegisterForm = ({ setIsRegisterPage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [checkedPassword, setCheckedPassword] = useState("");
 
   const isEmailValid = validateEmail(email);
   const isPasswordValid = password.length >= 8;
-  const isLoginFormValid = isEmailValid && isPasswordValid;
+  const isRegisterFormValid =
+    isEmailValid && isPasswordValid && password === checkedPassword;
 
-  const handleLoginSubmit = async (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const data = { email, password };
     try {
-      const res = await Api.post("/auth/signin", data);
+      const res = await Api.post("/auth/signup", data);
       const userToken = res.access_token;
       localStorage.setItem("userToken", userToken);
       console.log("토큰받기 성공!", userToken);
-      console.log("로그인 성공!");
-      navigate("/todo");
+      alert("회원가입 성공!");
+      setIsRegisterPage(false);
     } catch (e) {
       alert(`에러 내용: ${e.response.data.message}`);
     }
@@ -29,8 +29,8 @@ const LoginForm = ({ setIsRegisterPage }) => {
 
   return (
     <div>
-      <h2>로그인 폼입니다.</h2>
-      <form action="/" onSubmit={handleLoginSubmit}>
+      <h2>회원가입 폼입니다.</h2>
+      <form action="/" onSubmit={handleRegisterSubmit}>
         <label id="email">이메일</label>
         <input
           id="email"
@@ -54,15 +54,26 @@ const LoginForm = ({ setIsRegisterPage }) => {
         />
         <br></br>
         <br></br>
-        <button type="submit" disabled={!isLoginFormValid}>
-          로그인
+        <label id="cpw">비밀번호 확인</label>
+        <input
+          id="cpw"
+          type="password"
+          value={checkedPassword}
+          placeholder="비밀번호를 한번더 입력해주세요."
+          required
+          onChange={(e) => setCheckedPassword(e.target.value)}
+        />
+        <br></br>
+        <br></br>
+        <button type="button" onClick={() => setIsRegisterPage(false)}>
+          뒤로가기
         </button>
-        <button type="button" onClick={() => setIsRegisterPage(true)}>
-          회원가입
+        <button type="submit" disabled={!isRegisterFormValid}>
+          회원가입하기
         </button>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

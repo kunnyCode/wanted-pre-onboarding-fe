@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginForm from "./components/auth/LoginForm";
+import AuthPage from "./components/auth/AuthPage";
+import TodoPage from "./components/todo/TodoPage";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
           <h1>투두 리스트 헤더입니다.</h1>
         </header>
         <Routes>
-          <Route path="/" exact element={<LoginForm />}></Route>
+          <Route path="/" exact element={<AuthPage />}></Route>
+          <Route path="/todo" exact element={<TodoPage />}></Route>
         </Routes>
       </Router>
     </>
