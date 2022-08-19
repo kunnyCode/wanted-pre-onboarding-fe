@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { editItem, TodoDispatchContext } from "../../TodoContext";
+import { deleteItem, editItem, TodoDispatchContext } from "../../TodoContext";
 
 const TodoItem = ({ id, todo, isCompleted, userId }) => {
   const [openEditFrom, setOpenEidtForm] = useState(false);
@@ -12,6 +12,11 @@ const TodoItem = ({ id, todo, isCompleted, userId }) => {
     const idNum = id;
     const content = { todo: todoContent, isCompleted: todoIsCompleted };
     editItem(dispatch, content, idNum);
+  };
+
+  const handleDeleteItem = () => {
+    const idNum = id;
+    deleteItem(dispatch, idNum);
   };
 
   return (
@@ -69,7 +74,7 @@ const TodoItem = ({ id, todo, isCompleted, userId }) => {
             <button onClick={() => setOpenEidtForm((prev) => !prev)}>
               수정
             </button>
-            <button>삭제</button>
+            <button onClick={handleDeleteItem}>삭제</button>
           </div>
         </div>
       )}

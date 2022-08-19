@@ -25,10 +25,10 @@ const TodoCreate = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
+            <button type="submit">생성</button>
             <button type="button" onClick={() => setOpen(false)}>
               취소
             </button>
-            <button type="submit">생성</button>
           </form>
         </div>
       )}

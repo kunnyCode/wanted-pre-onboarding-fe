@@ -46,9 +46,9 @@ const put = async (endpoint, payload) => {
 };
 
 const del = async (endpoint) => {
-  const { data } = await axios.del(apiUrl + endpoint, {
+  const { data } = await axios.delete(apiUrl + endpoint, {
     headers: {
-      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("userToken")}`,
     },
   });
   return data;
