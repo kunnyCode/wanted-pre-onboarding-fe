@@ -19,8 +19,6 @@ const LoginForm = ({ setIsRegisterPage }) => {
       const res = await Api.post("/auth/signin", data);
       const userToken = res.access_token;
       localStorage.setItem("userToken", userToken);
-      console.log("토큰받기 성공!", userToken);
-      console.log("로그인 성공!");
       navigate("/todo");
     } catch (e) {
       alert(`에러 내용: ${e.response.data.message}`);

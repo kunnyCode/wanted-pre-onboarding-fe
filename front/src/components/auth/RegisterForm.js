@@ -19,7 +19,6 @@ const RegisterForm = ({ setIsRegisterPage }) => {
       const res = await Api.post("/auth/signup", data);
       const userToken = res.access_token;
       localStorage.setItem("userToken", userToken);
-      console.log("토큰받기 성공!", userToken);
       alert("회원가입 성공!");
       setIsRegisterPage(false);
     } catch (e) {
