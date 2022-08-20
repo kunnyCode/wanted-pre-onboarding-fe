@@ -69,6 +69,7 @@ export const CheckCircle = styled.div`
 
 export const Text = styled.div`
   flex: 1;
+  line-height: 30px;
   font-size: 20px;
   color: #495057;
   overflow: auto;
