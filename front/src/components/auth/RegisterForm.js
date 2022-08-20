@@ -30,7 +30,7 @@ const RegisterForm = ({ setIsRegisterPage }) => {
       const res = await Api.post("/auth/signup", data);
       const userToken = res.access_token;
       localStorage.setItem("userToken", userToken);
-      alert("회원가입 성공!");
+      alert("회원가입 성공!\n 로그인 페이지로 이동합니다.");
       setIsRegisterPage(false);
     } catch (e) {
       alert(`에러 내용: ${e.response.data.message}`);
