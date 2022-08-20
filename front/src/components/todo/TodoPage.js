@@ -41,8 +41,9 @@ const TodoPage = () => {
         <Btn
           className="bot"
           onClick={() => {
-            getList(dispatch);
-            alert("리스트를 다시 불러왔습니다.");
+            // getList(dispatch);
+            alert("리스트를 다시 불러옵니다.");
+            navigate("/", { replace: true });
           }}
         >
           리스트 다시 불러오기
