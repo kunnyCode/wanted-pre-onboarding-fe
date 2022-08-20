@@ -1,7 +1,12 @@
 import { useContext } from "react";
 import TodoItem from "./TodoItem";
 import { TodoStateContext } from "../../TodoContext";
-import { TodoListBlock } from "../../style/TodoStyle";
+import {
+  TodoListBlock,
+  TodoListText,
+  TodoListTitle,
+} from "../../style/TodoStyle";
+import { fontSize, fontWeight } from "@mui/system";
 
 const TodoList = () => {
   const state = useContext(TodoStateContext);
@@ -10,10 +15,13 @@ const TodoList = () => {
     <TodoListBlock>
       <div>
         {state.length === 0 ? (
-          <div style={{ display: "flex" }}>
-            <div style={{ border: "1px solid red" }}>
-              <h3>리스트가 암것도 없습니다.</h3>
-            </div>
+          <div style={{ margin: "auto" }}>
+            <img alt="empty" src="/empty.jpg" />
+            <TodoListTitle>리스트가 비어있습니다.</TodoListTitle>
+            <TodoListText style={{ textAlign: "center" }}>
+              리스트를 채워주세요!
+            </TodoListText>
+            <TodoListText>👇👇👇👇👇</TodoListText>
           </div>
         ) : (
           state.map((item) => (

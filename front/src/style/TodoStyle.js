@@ -33,6 +33,20 @@ export const TodoListBlock = styled.div`
   overflow: auto;
 `;
 
+export const TodoListTitle = styled.p`
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 20px;
+  padding-top: 40px;
+`;
+
+export const TodoListText = styled.p`
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+`;
+
 ///@ TodoItem
 export const CheckCircle = styled.div`
   width: 32px;
