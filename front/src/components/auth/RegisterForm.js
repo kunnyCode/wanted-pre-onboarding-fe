@@ -48,6 +48,7 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           id="email"
           type="email"
           value={email}
+          isValid={isEmailValid}
           placeholder="이메일을 입력해주세요."
           autoFocus
           required
@@ -60,6 +61,7 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           id="pw"
           type="password"
           value={password}
+          isValid={isPasswordValid}
           placeholder="비밀번호를 입력해주세요."
           required
           onChange={(e) => setPassword(e.target.value)}
@@ -73,6 +75,7 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           id="cpw"
           type="password"
           value={checkedPassword}
+          isValid={isBothPasswordValid}
           placeholder="비밀번호를 한번더 입력해주세요."
           required
           onChange={(e) => setCheckedPassword(e.target.value)}

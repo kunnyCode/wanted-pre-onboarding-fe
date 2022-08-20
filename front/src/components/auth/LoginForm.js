@@ -50,6 +50,7 @@ const LoginForm = ({ setIsRegisterPage }) => {
           id="email"
           type="email"
           value={email}
+          isValid={isEmailValid}
           placeholder="이메일을 입력해주세요."
           autoFocus
           required
@@ -62,6 +63,7 @@ const LoginForm = ({ setIsRegisterPage }) => {
           id="pw"
           type="password"
           value={password}
+          isValid={isPasswordValid}
           placeholder="비밀번호를 입력해주세요."
           required
           onChange={(e) => setPassword(e.target.value)}

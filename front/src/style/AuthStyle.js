@@ -24,6 +24,12 @@ export const AuthInput = styled.input`
   outline: none;
   font-size: 18px;
   box-sizing: border-box;
+
+  ${(props) =>
+    props.isValid &&
+    css`
+      margin-bottom: 26px;
+    `}
 `;
 
 export const AuthGuide = styled.div`
