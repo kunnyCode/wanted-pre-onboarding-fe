@@ -19,7 +19,7 @@ yarn start
 
 ### Assignment1
 
-![1](https://user-images.githubusercontent.com/77873651/185750643-323c3e1f-d1c5-4b63-b83b-2cd38441aec9.gif)
+![1](https://user-images.githubusercontent.com/77873651/185752013-4952bc4e-4066-4c8f-bf73-f4efadc11d4a.gif)
 <br/><br/>
 
 ### Assignment2
@@ -39,7 +39,7 @@ yarn start
 
 ### Assignment5
 
-![5](https://user-images.githubusercontent.com/77873651/185750619-a6e0e43f-9409-4eef-a14e-1d815172e341.gif)
+![5](https://user-images.githubusercontent.com/77873651/185752067-f7b7254d-9db3-4ac5-a36f-cff18853d972.gif)
 <br/><br/>
 
 <br/><br/><br/><br/>
