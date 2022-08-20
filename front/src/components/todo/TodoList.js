@@ -10,7 +10,7 @@ import {
 const TodoList = () => {
   const state = useContext(TodoStateContext);
 
-  if (state[0].id === "init") {
+  if (state.length === 1 && state[0].id === "init") {
     return <div style={{ margin: "auto", fontSize: "48px" }}>로딩중...</div>;
   }
 
