@@ -19,9 +19,9 @@ const TodoList = () => {
       {state.length === 0 ? (
         <div style={{ margin: "auto" }}>
           <img alt="empty" src="/empty.jpg" />
-          <TodoListTitle>리스트가 비어있습니다.</TodoListTitle>
+          <TodoListTitle>Todo List가 비어있습니다.</TodoListTitle>
           <TodoListText style={{ textAlign: "center" }}>
-            리스트를 채워주세요!
+            Todo List를 채워주세요!
           </TodoListText>
           <TodoListText>👇👇👇👇👇</TodoListText>
         </div>
