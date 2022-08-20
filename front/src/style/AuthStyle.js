@@ -11,18 +11,26 @@ export const AuthLabel = styled.label`
   display: block;
   font-size: 18px;
   font-weight: 500;
+  padding-left: 6px;
   padding-bottom: 10px;
 `;
 
 export const AuthInput = styled.input`
   padding: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 8px;
   border-radius: 4px;
   border: 1px solid #dee2e6;
   width: 100%;
   outline: none;
   font-size: 18px;
   box-sizing: border-box;
+`;
+
+export const AuthGuide = styled.div`
+  padding-left: 6px;
+  margin-bottom: 26px;
+  font-size: 14px;
+  color: gray;
 `;
 
 export const RBtnBox = styled.div`

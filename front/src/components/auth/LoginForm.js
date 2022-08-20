@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { HeadBlock, PageBlock } from "../../style/GlobalStyle";
 import {
   AuthForm,
+  AuthGuide,
   AuthInput,
   AuthLabel,
   LoginBtn,
@@ -54,6 +55,7 @@ const LoginForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
+        {!isEmailValid && <AuthGuide>이메일 형식을 맞춰주세요</AuthGuide>}
 
         <AuthLabel id="pw">비밀번호</AuthLabel>
         <AuthInput
@@ -64,6 +66,9 @@ const LoginForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
+        {!isPasswordValid && (
+          <AuthGuide>비밀번호느 8자리 이상입니다.</AuthGuide>
+        )}
 
         <RBtnBox>
           <RegisterBtn type="button" onClick={() => setIsRegisterPage(true)}>

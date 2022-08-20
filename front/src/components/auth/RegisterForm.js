@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as Api from "../../api";
 import {
   AuthForm,
+  AuthGuide,
   AuthInput,
   AuthLabel,
   LoginBtn,
@@ -18,8 +19,9 @@ const RegisterForm = ({ setIsRegisterPage }) => {
 
   const isEmailValid = validateEmail(email);
   const isPasswordValid = password.length >= 8;
+  const isBothPasswordValid = password === checkedPassword;
   const isRegisterFormValid =
-    isEmailValid && isPasswordValid && password === checkedPassword;
+    isEmailValid && isPasswordValid && isBothPasswordValid;
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
@@ -51,6 +53,7 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
+        {!isEmailValid && <AuthGuide>이메일 형식에 맞지 않습니다.</AuthGuide>}
 
         <AuthLabel id="pw">비밀번호</AuthLabel>
         <AuthInput
@@ -61,6 +64,9 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
+        {!isPasswordValid && (
+          <AuthGuide>비밀번호를 8자리 이상으로 설정해주세요.</AuthGuide>
+        )}
 
         <AuthLabel id="cpw">비밀번호 확인</AuthLabel>
         <AuthInput
@@ -71,6 +77,9 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setCheckedPassword(e.target.value)}
         />
+        {!isBothPasswordValid && (
+          <AuthGuide>위 비밀번호와 동일하게 적어주세요.</AuthGuide>
+        )}
 
         <RBtnBox>
           <RegisterBtn type="button" onClick={() => setIsRegisterPage(false)}>
