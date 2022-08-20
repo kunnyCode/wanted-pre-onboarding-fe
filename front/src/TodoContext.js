@@ -60,7 +60,8 @@ export const TodoStateContext = createContext(null);
 export const TodoDispatchContext = createContext(null);
 
 export const TodoContext = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, []);
+  const initValue = [{ id: "init" }];
+  const [state, dispatch] = useReducer(reducer, initValue);
 
   return (
     <TodoStateContext.Provider value={state}>
