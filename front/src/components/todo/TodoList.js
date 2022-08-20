@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import TodoItem from "./TodoItem";
 import { TodoStateContext } from "../../TodoContext";
+import { TodoListBlock } from "../../style/TodoStyle";
 
 const TodoList = () => {
   const state = useContext(TodoStateContext);
 
   return (
-    <>
-      <div>투두 리스트</div>
+    <TodoListBlock>
       <div>
         {state.length === 0 ? (
           <div style={{ display: "flex" }}>
@@ -27,7 +27,7 @@ const TodoList = () => {
           ))
         )}
       </div>
-    </>
+    </TodoListBlock>
   );
 };
 

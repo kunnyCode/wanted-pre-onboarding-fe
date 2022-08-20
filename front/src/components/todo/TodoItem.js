@@ -1,4 +1,23 @@
 import React, { useContext, useState } from "react";
+import {
+  CheckCircle,
+  Remove,
+  Edit,
+  Text,
+  TodoItemBlock,
+  EditForm,
+  EditInput,
+  EditBlock,
+  EditBtn,
+  EditCancel,
+} from "../../style/TodoStyle";
+import {
+  MdDone,
+  MdDelete,
+  MdEdit,
+  MdCheckCircle,
+  MdCancel,
+} from "react-icons/md";
 import { deleteItem, editItem, TodoDispatchContext } from "../../TodoContext";
 
 const TodoItem = ({ id, todo, isCompleted, userId }) => {
@@ -28,60 +47,53 @@ const TodoItem = ({ id, todo, isCompleted, userId }) => {
   };
 
   return (
-    <>
+    <TodoItemBlock>
       {openEditFrom ? (
-        <div style={{ display: "flex" }}>
-          <div style={{ border: "1px solid red" }}>
-            <div>아이디{id}</div>
-            <form action="/">
-              <input
-                type="text"
-                value={todoContent}
-                onChange={(e) => setTodoContent(e.target.value)}
-              />
-            </form>
-            <div>유저아이디{userId}</div>
-            <div>확인여부: {isCompleted ? "완료" : "미완료"}</div>
-          </div>
-          <div style={{ border: "1px solid red" }}>
-            <button
-              onClick={() => {
-                setOpenEidtForm(false);
-                handleEditForm();
-              }}
-            >
-              변경
-            </button>
-            <button
-              onClick={() => {
-                setOpenEidtForm((prev) => !prev);
-                setTodoContent(todo);
-              }}
-            >
-              취소
-            </button>
-          </div>
-        </div>
+        <>
+          <EditForm action="/">
+            <EditInput
+              type="text"
+              value={todoContent}
+              onChange={(e) => setTodoContent(e.target.value)}
+            />
+          </EditForm>
+          <EditBtn
+            onClick={() => {
+              setOpenEidtForm(false);
+              handleEditForm();
+            }}
+          >
+            <MdCheckCircle />
+          </EditBtn>
+          <EditCancel
+            onClick={() => {
+              setOpenEidtForm((prev) => !prev);
+              setTodoContent(todo);
+            }}
+          >
+            <MdCancel />
+          </EditCancel>
+        </>
       ) : (
-        <div style={{ display: "flex" }}>
-          <div style={{ border: "1px solid red" }}>
-            <button onClick={handleEditCheck}>
-              {isCompleted ? "✔︎체크한상태✔︎" : "노체크상태"}
-            </button>
-            <div>아이디{id}</div>
-            <div>내용{todo}</div>
-            <div>확인여부: {isCompleted ? "완료" : "미완료"}</div>
-            <div>유저아이디{userId}</div>
-          </div>
-          <div style={{ border: "1px solid red" }}>
-            <button onClick={() => setOpenEidtForm((prev) => !prev)}>
-              수정
-            </button>
-            <button onClick={handleDeleteItem}>삭제</button>
-          </div>
-        </div>
+        <>
+          <CheckCircle onClick={handleEditCheck} done={isCompleted}>
+            {isCompleted && <MdDone />}
+          </CheckCircle>
+          <Text done={isCompleted}>{todo}</Text>
+          {isCompleted || (
+            <Edit
+              done={isCompleted}
+              onClick={() => setOpenEidtForm((prev) => !prev)}
+            >
+              <MdEdit />
+            </Edit>
+          )}
+          <Remove onClick={handleDeleteItem}>
+            <MdDelete />
+          </Remove>
+        </>
       )}
-    </>
+    </TodoItemBlock>
   );
 };
 

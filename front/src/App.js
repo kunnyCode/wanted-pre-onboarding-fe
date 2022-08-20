@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthPage from "./components/auth/AuthPage";
 import TodoPage from "./components/todo/TodoPage";
+import { GlobalStyle } from "./style/GlobalStyle";
 
 function App() {
   return (
     <>
+      <GlobalStyle />
       <Router>
-        <header>
-          <h1>투두 리스트 헤더입니다.</h1>
-        </header>
         <Routes>
           <Route path="/" exact element={<AuthPage />}></Route>
           <Route path="/todo" exact element={<TodoPage />}></Route>
