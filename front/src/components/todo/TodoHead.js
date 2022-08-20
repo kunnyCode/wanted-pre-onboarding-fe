@@ -9,12 +9,11 @@ const TodoHead = () => {
     <HeadBlock>
       <h2>Todo List</h2>
       <div className="total">
-        총 개수 {state.length === 1 && state[0].id !== "init" && state.length}
+        총 개수 {state[0]?.id !== "init" && state.length}
       </div>
       <div className="tasks-left">
         남은 개수{" "}
-        {state.length === 1 &&
-          state[0].id !== "init" &&
+        {state[0]?.id !== "init" &&
           state.filter((item) => !item.isCompleted).length}
       </div>
       <br></br>
