@@ -1,30 +1,27 @@
 import styled, { css } from "styled-components";
 
-///@ TodoHead
-export const TodoHeadBlock = styled.div`
-  padding-top: 40px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #e9ecef;
+///@ TodoPage
+export const BottomBtn = styled.div`
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 512px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  h2 {
-    margin: 0;
-    font-size: 24px;
-    color: #343a40;
-  }
+  .logoutBtn {
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
 
-  .total {
-    margin-top: 20px;
-    color: #868e96;
-    font-size: 21px;
-  }
-
-  .tasks-left {
-    color: #20c997;
-    font-size: 18px;
-    margin-top: 10px;
-    font-weight: bold;
+    &:hover {
+      border: 2px solid #ff8787;
+      color: #d10000;
+    }
+    &:active {
+      border: 2px solid #ff6b6b;
+      background: #ff6b6b;
+      color: #fff;
+    }
   }
 `;
 
@@ -273,30 +270,5 @@ export const Btn = styled.button`
     background: #1cb386;
     border: 2px solid #1cb386;
     color: #fff;
-  }
-`;
-
-///@ TodoPage
-export const BottomBtn = styled.div`
-  margin: 0 auto;
-  padding: 0 32px;
-  width: 512px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .logoutBtn {
-    border: 1px solid #ff6b6b;
-    color: #ff6b6b;
-
-    &:hover {
-      border: 2px solid #ff8787;
-      color: #d10000;
-    }
-    &:active {
-      border: 2px solid #ff6b6b;
-      background: #ff6b6b;
-      color: #fff;
-    }
   }
 `;

@@ -30,3 +30,31 @@ export const PageBlock = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const HeadBlock = styled.div`
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e9ecef;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    color: #343a40;
+  }
+
+  .total {
+    margin-top: 20px;
+    color: #868e96;
+    font-size: 21px;
+  }
+
+  .tasks-left {
+    color: #20c997;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+`;

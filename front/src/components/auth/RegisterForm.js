@@ -1,5 +1,14 @@
 import { useState } from "react";
 import * as Api from "../../api";
+import {
+  AuthForm,
+  AuthInput,
+  AuthLabel,
+  LoginBtn,
+  RBtnBox,
+  RegisterBtn,
+} from "../../style/AuthStyle";
+import { HeadBlock, PageBlock } from "../../style/GlobalStyle";
 import { validateEmail } from "../../utils";
 
 const RegisterForm = ({ setIsRegisterPage }) => {
@@ -27,11 +36,13 @@ const RegisterForm = ({ setIsRegisterPage }) => {
   };
 
   return (
-    <div>
-      <h2>회원가입 폼입니다.</h2>
-      <form action="/" onSubmit={handleRegisterSubmit}>
-        <label id="email">이메일</label>
-        <input
+    <PageBlock>
+      <HeadBlock>
+        <h2>Register</h2>
+      </HeadBlock>
+      <AuthForm action="/" onSubmit={handleRegisterSubmit}>
+        <AuthLabel id="email">이메일</AuthLabel>
+        <AuthInput
           id="email"
           type="email"
           value={email}
@@ -40,10 +51,9 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br></br>
-        <br></br>
-        <label id="pw">비밀번호</label>
-        <input
+
+        <AuthLabel id="pw">비밀번호</AuthLabel>
+        <AuthInput
           id="pw"
           type="password"
           value={password}
@@ -51,10 +61,9 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br></br>
-        <br></br>
-        <label id="cpw">비밀번호 확인</label>
-        <input
+
+        <AuthLabel id="cpw">비밀번호 확인</AuthLabel>
+        <AuthInput
           id="cpw"
           type="password"
           value={checkedPassword}
@@ -62,16 +71,21 @@ const RegisterForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setCheckedPassword(e.target.value)}
         />
-        <br></br>
-        <br></br>
-        <button type="button" onClick={() => setIsRegisterPage(false)}>
-          뒤로가기
-        </button>
-        <button type="submit" disabled={!isRegisterFormValid}>
+
+        <RBtnBox>
+          <RegisterBtn type="button" onClick={() => setIsRegisterPage(false)}>
+            뒤로가기
+          </RegisterBtn>
+        </RBtnBox>
+        <LoginBtn
+          type="submit"
+          disabled={!isRegisterFormValid}
+          isFormValid={isRegisterFormValid}
+        >
           회원가입하기
-        </button>
-      </form>
-    </div>
+        </LoginBtn>
+      </AuthForm>
+    </PageBlock>
   );
 };
 

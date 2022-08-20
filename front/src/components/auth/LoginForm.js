@@ -2,6 +2,15 @@ import { useState } from "react";
 import * as Api from "../../api";
 import { validateEmail } from "../../utils";
 import { useNavigate } from "react-router-dom";
+import { HeadBlock, PageBlock } from "../../style/GlobalStyle";
+import {
+  AuthForm,
+  AuthInput,
+  AuthLabel,
+  LoginBtn,
+  RBtnBox,
+  RegisterBtn,
+} from "../../style/AuthStyle";
 
 const LoginForm = ({ setIsRegisterPage }) => {
   const navigate = useNavigate();
@@ -21,16 +30,22 @@ const LoginForm = ({ setIsRegisterPage }) => {
       localStorage.setItem("userToken", userToken);
       navigate("/todo");
     } catch (e) {
-      alert(`에러 내용: ${e.response.data.message}`);
+      if (e.response.data.message === "Unauthorized") {
+        alert(`에러 내용: 접근권한 없음. 비밀번호를 다시 확인해주세요.`);
+      } else {
+        alert(`에러 내용: ${e.response.data.message}`);
+      }
     }
   };
 
   return (
-    <div>
-      <h2>로그인 폼입니다.</h2>
-      <form action="/" onSubmit={handleLoginSubmit}>
-        <label id="email">이메일</label>
-        <input
+    <PageBlock>
+      <HeadBlock>
+        <h2>Login</h2>
+      </HeadBlock>
+      <AuthForm action="/" onSubmit={handleLoginSubmit}>
+        <AuthLabel id="email">이메일</AuthLabel>
+        <AuthInput
           id="email"
           type="email"
           value={email}
@@ -39,10 +54,9 @@ const LoginForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br></br>
-        <br></br>
-        <label id="pw">비밀번호</label>
-        <input
+
+        <AuthLabel id="pw">비밀번호</AuthLabel>
+        <AuthInput
           id="pw"
           type="password"
           value={password}
@@ -50,16 +64,21 @@ const LoginForm = ({ setIsRegisterPage }) => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br></br>
-        <br></br>
-        <button type="submit" disabled={!isLoginFormValid}>
+
+        <RBtnBox>
+          <RegisterBtn type="button" onClick={() => setIsRegisterPage(true)}>
+            회원가입
+          </RegisterBtn>
+        </RBtnBox>
+        <LoginBtn
+          type="submit"
+          disabled={!isLoginFormValid}
+          isFormValid={isLoginFormValid}
+        >
           로그인
-        </button>
-        <button type="button" onClick={() => setIsRegisterPage(true)}>
-          회원가입
-        </button>
-      </form>
-    </div>
+        </LoginBtn>
+      </AuthForm>
+    </PageBlock>
   );
 };
 
