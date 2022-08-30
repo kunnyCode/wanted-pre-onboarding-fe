@@ -11,7 +11,7 @@
 ```bash
 git clone https://github.com/kunnyCode/wanted-pre-onboarding-fe.git
 cd front
-yarn insall
+yarn install
 yarn start
 ```
 
