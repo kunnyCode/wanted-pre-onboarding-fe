@@ -1,4 +1,5 @@
 # wanted-pre-onboarding-fe
+[선발 과제 내용](https://github.com/walking-sunset/selection-task)
 
 <br/>
 
