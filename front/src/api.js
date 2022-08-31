@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const apiUrl =
-  "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/";
+const apiUrl = "https://n38lcff1wk.execute-api.ap-northeast-2.amazonaws.com/";
 
 const post = async (endpoint, payload, tokenNeeded = false) => {
   // 헤더에 토큰이 필요한 경우 post요청 (todoList)
