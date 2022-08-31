@@ -1,4 +1,5 @@
 # wanted-pre-onboarding-fe
+[선발 과제 내용](https://github.com/walking-sunset/selection-task)
 
 <br/>
 
@@ -11,7 +12,7 @@
 ```bash
 git clone https://github.com/kunnyCode/wanted-pre-onboarding-fe.git
 cd front
-yarn insall
+yarn install
 yarn start
 ```
 
